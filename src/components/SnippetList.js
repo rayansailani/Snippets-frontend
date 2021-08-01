@@ -16,17 +16,21 @@ const SnippetList = () => {
 
   return (
     <div>
-      {list.map((snippet) => {
-        return (
-          <div>
-            <p>Title: {snippet.title}</p>
-            <Link to={"/snippet/" + snippet.id.toString()}>
-              Code: {snippet.code}
-            </Link>
-            <p>Language: {snippet.language}</p>
-          </div>
-        );
-      })}
+      {list.length > 0 ? (
+        list.map((snippet) => {
+          return (
+            <div>
+              <p>Title: {snippet.title}</p>
+              <Link to={"/snippet/" + snippet.id.toString()}>
+                Code: {snippet.code}
+              </Link>
+              <p>Language: {snippet.language}</p>
+            </div>
+          );
+        })
+      ) : (
+        <p>Loading....</p>
+      )}
     </div>
   );
 };
